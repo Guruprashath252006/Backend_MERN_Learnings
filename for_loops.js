@@ -1,3 +1,4 @@
+//1
 const cars=['Volvo','BMW','audi','tata']
 let n=cars.length
 
@@ -20,3 +21,4 @@ function isprime(num){
     return true;
 }
     
+
