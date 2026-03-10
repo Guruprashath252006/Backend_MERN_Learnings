@@ -1,0 +1,58 @@
+<script>
+//1
+
+console.log("5" + 2);  //52
+//When one operand is a string ("5"), JavaScript converts the number 2 into a string and performs string concatenation, not addition.
+
+console.log("5" - 2);  //3
+//In this case, JavaScript converts the string "5" into a number and performs subtraction
+
+console.log(false == 0);  //true
+//In JavaScript, the boolean value false is considered equal to the number 0 when using the loose equality operator (==). This is because JavaScript performs type coercion, converting false to 0 before comparing the values. Therefore, false == 0 evaluates to true.
+
+
+//2
+function calculateTotal(price, qty) {
+    const numericPrice = Number(price);
+    const numericQty = Number(qty);
+
+    if (isNaN(numericPrice) || isNaN(numericQty)) {
+        return "Invalid input";
+    }
+
+    return numericPrice * numericQty;
+}
+
+// Example
+console.log(calculateTotal("100", "3")); // 300
+
+//3
+console.log(5 == "5");    // true
+console.log(5 === "5");   // false
+
+console.log(false == 0);   // true
+console.log(false === 0);  // false
+
+console.log(null == undefined);   // true
+console.log(null === undefined);  // false
+
+
+//4
+
+function checkTruthyFalsy(value) {
+    const result = Boolean(value);
+
+    if (result) {
+        return "Truthy";
+    } else {
+        return "Falsy";
+    }
+}
+
+// Examples
+console.log(checkTruthyFalsy(0));        // Falsy
+console.log(checkTruthyFalsy("hello"));  // Truthy
+console.log(checkTruthyFalsy(""));       // Falsy
+console.log(checkTruthyFalsy(null));     // Falsy
+console.log(checkTruthyFalsy(100));      // Truthy
+</script>
