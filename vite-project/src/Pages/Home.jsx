@@ -1,15 +1,9 @@
-import Banner from "../components/Banner"
-import Cards from "../components/Cards"
-
-
+import React from 'react'
+import Banner from '../components/Banner'
 
 const Home = () => {
   return (
-  <>
-   <Banner/>
-   <Cards/>
-  </>
-
+    <Banner />
   )
 }
 
