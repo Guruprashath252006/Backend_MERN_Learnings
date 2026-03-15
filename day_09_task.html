@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM Tasks</title>
+<style>
+body { font-family: Arial; text-align: center; }
+section { margin: 30px 0; }
+button { padding: 8px 12px; margin: 5px; }
+#count { font-size: 35px; margin: 15px; }
+ul { list-style: none; padding: 0; }
+li { margin: 5px; }
+</style>
+</head>
+<body>
+
+<h2>1️ Counter Program</h2>
+<section>
+<div id="count">0</div>
+<button id="inc">Increase</button>
+<button id="dec">Decrease</button>
+<button id="reset">Reset</button>
+</section>
+
+<h2>2️ & 3️ Add and Delete List Item</h2>
+<section>
+<input type="text" id="itemInput">
+<button id="addBtn">Add</button>
+<ul id="list"></ul>
+</section>
+
+<h2>4️ Form Validation</h2>
+<section>
+<form id="myForm">
+<input type="text" id="username" placeholder="Enter Username">
+<button type="submit">Submit</button>
+</form>
+<p id="message"></p>
+</section>
+
+<h2>5️ Change Background Color</h2>
+<section>
+<button id="toggle">Change Background</button>
+</section>
+
+<script>
+let count = 0
+const display = document.getElementById("count")
+
+document.getElementById("inc").onclick = () => {
+  count++
+  display.textContent = count
+}
+
+document.getElementById("dec").onclick = () => {
+  count--
+  display.textContent = count
+}
+
+document.getElementById("reset").onclick = () => {
+  count = 0
+  display.textContent = count
+}
+
+document.getElementById("addBtn").onclick = () => {
+  const input = document.getElementById("itemInput")
+  if (input.value.trim() !== "") {
+    const li = document.createElement("li")
+    li.textContent = input.value
+
+    const delBtn = document.createElement("button")
+    delBtn.textContent = "Delete"
+
+    delBtn.onclick = () => {
+      li.remove()
+    }
+
+    li.appendChild(delBtn)
+    document.getElementById("list").appendChild(li)
+    input.value = ""
+  }
+}
+
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault()
+  const username = document.getElementById("username").value.trim()
+  const message = document.getElementById("message")
+
+  if (username === "") {
+    message.textContent = "Username is required"
+    message.style.color = "red"
+  } else {
+    message.textContent = "Form submitted successfully"
+    message.style.color = "green"
+  }
+})
+
+let isChanged = false
+
+document.getElementById("toggle").onclick = () => {
+  if (!isChanged) {
+    document.body.style.backgroundColor = "lightblue"
+    isChanged = true
+  } else {
+    document.body.style.backgroundColor = "white"
+    isChanged = false
+  }
+}
+</script>
+
+</body>
+</html>
